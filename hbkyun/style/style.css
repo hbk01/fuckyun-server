@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn {
+    width: 100px;
+}
+
+#addFields {
+    width: 150px;
+}
+
+#submit {
+    width: 150px;
+}

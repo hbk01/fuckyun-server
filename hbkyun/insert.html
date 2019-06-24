@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var button = document.getElementById("addKV");
+            var field_count = 0;
+            $(button).click(function () {
+                // 创建key输入框
+                var key = document.createElement("input");
+                $(key).attr("type", "text");
+                $(key).attr("name", "key[]");
+                $(key).attr("placeholder", "键" + ++field_count);
+                // 创建value输入框
+                var value = document.createElement("input");
+                $(value).attr("type", "text");
+                $(value).attr("name", "value[]");
+                $(value).attr("placeholder", "值" + field_count);
+
+                // 寻找换行标签
+                var brs = document.getElementsByTagName("br");
+                // 在最后一个换行标签后添加key输入框
+                $(brs[brs.length - 1]).after(key);
+                // 在key输入框后添加value输入框
+                $(key).after(value);
+                // 在value输入框后添加换行标签
+                $(value).after("<br>");
+            });
+        });
+    </script>
+</head>
+<body>
+
+<form action="insert.php" method="post">
+    <input type="text" name="table" placeholder="表名"><br>
+    注意：键要与表的键相同，值要与表中的类型相符<br>
+    <input type="submit" class="btn" value="提交">
+    <input type="button" class="btn" id="addKV" value="新增键值对">
+</form>
+</body>
+</html>

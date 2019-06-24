@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var button = document.getElementById("addFields");
+            var field_count = 0;
+            $(button).click(function () {
+                var input = document.createElement("input");
+                $(input).attr("type", "text");
+                $(input).attr("name", "field[]");
+                $(input).attr("placeholder", "字段" + ++field_count);
+                var brs = document.getElementsByTagName("br");
+                $(brs[brs.length - 1]).after(input);
+                $(input).after("<br>");
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>创建表</h1>
+注意：字段类型均为text，不支持修改
+<form action="create.php" method="post">
+    <input type="text" name="table" placeholder="表名"><br>
+    <input type="submit" id="submit" value="提交">
+    <input type="button" id="addFields" value="添加字段">
+</form>
+</body>
+</html>
